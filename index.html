@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECHOES OF ENIGMA: The Heritage Heist</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            color: #EAEAEA;
+            background-color: #1a1a1a;
+        }
+
+        .background {
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: transparent;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h1, h3, h4 {
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 3px 3px 6px #000, 0 0 5px #000;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            color: #A9D6E5;
+        }
+        
+        h3 {
+           font-size: 1.5em;
+           color: #F4A261;
+        }
+
+        p, li {
+            line-height: 1.6;
+            text-shadow: 2px 2px 4px #000, -2px -2px 4px #000;
+        }
+        
+        blockquote {
+            font-style: italic;
+            color: #cccccc;
+            margin: 15px 0;
+            padding: 10px 20px;
+            border-left: 4px solid #A9D6E5;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        .credits-header {
+            text-align: left; /* CHANGED */
+            font-size: 0.8em;
+            margin-bottom: 15px;
+            padding: 0;
+            line-height: 1.3;
+            color: #FFFFFF; /* CHANGED */
+            font-weight: 600; /* CHANGED */
+            text-shadow: 1px 1px 2px #000; /* ADDED */
+        }
+        
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #ccc;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+            line-height: 1.4;
+        }
+
+        /* Collapsible Button Styles */
+        .collapsible {
+            background-color: rgba(1, 73, 124, 0.8);
+            color: #EAEAEA;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: 1px solid #A9D6E5;
+            text-align: left;
+            outline: none;
+            font-size: 1.5em;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .collapsible:hover, .collapsible.active {
+            background-color: rgba(1, 42, 74, 0.9);
+        }
+        
+        .collapsible::before {
+            content: '+';
+            font-weight: bold;
+            float: right;
+            margin-left: 15px;
+        }
+        
+        .collapsible.active::before {
+            content: '-';
+        }
+
+        .content {
+            display: none;
+            padding: 0 18px;
+            overflow: hidden;
+            background-color: transparent;
+        }
+        
+        .content-inner {
+            padding: 20px;
+            background-color: rgba(0,0,0,0.6);
+            margin-top: -1px;
+            border: 1px solid #585858;
+            border-top: none;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .profile-card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .profile-card li {
+            background-color: rgba(0,0,0,0.2);
+            padding: 5px;
+            border-left: 3px solid #F4A261;
+            margin-bottom: 5px;
+        }
+        
+        /* Password Protected Content */
+        .bonus-content {
+            display: none;
+            background-color: rgba(0,0,0,0.7);
+            border: 2px dashed #F4A261;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        
+        .hidden-container {
+            display: none; /* Hidden by default */
+        }
+
+        .button {
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px 5px;
+        }
+        
+        .reveal-button {
+            background-color: #F4A261;
+            color: #111;
+        }
+        
+        .access-button {
+            background-color: rgba(193, 18, 31, 0.8);
+            color: white;
+            border: 1px solid #fff;
+            display: inline-block;
+            padding: 15px;
+            font-size: 1.2em;
+        }
+        
+        .access-button-container {
+            text-align: center;
+            margin: 20px 0;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+        
+        .resources {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .resources a {
+            color: #A9D6E5;
+            font-size: 1.3em;
+            text-decoration: none;
+            background-color: rgba(1, 42, 74, 0.9);
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #A9D6E5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="background">
+        <div class="container">
+            <div class="credits-header">
+                Created by Panagiotis Domvros 2025 (CC BY-NC)<br>
+                English & Drama Instructor– Teacher Trainer<br>
+                Principal of 1st Middle School of Pylea
+            </div>
+
+            <h1>ECHOES OF ENIGMA: The Heritage Heist</h1>
+
+            <button type="button" class="collapsible">Investigator Task Force Profiles</button>
+            <div class="content">
+                <div class="content-inner">
+                    <button type="button" class="collapsible">Codename: The Analyst</button>
+                    <div class="content profile-card">
+                        <div class="content-inner">
+                            <p><strong>Real Name:</strong> Dr. Alistair Finch</p>
+                            <p><strong>Affiliation:</strong> Formerly of Scotland Yard, now a freelance consultant for Interpol.</p>
+                            <p><strong>Profile Summary:</strong> Dr. Finch is a modern-day Sherlock Holmes, a man for whom the world is a grand logic puzzle. He is famously detached and intellectual, often seeming distant as his mind processes countless variables. He dismisses intuition as "the brain taking shortcuts" and relies only on pure, cold deduction. His involvement in a case guarantees that every piece of evidence will be scrutinized to its absolute limit, revealing connections no one else could possibly see.</p>
+                            <blockquote>"Do not tell me what you feel. Tell me what you know, and more importantly, how you know it."</blockquote>
+                            <h4>Key Strengths:</h4>
+                            <ul>
+                                <li>Logical & Deductive Reasoning</li>
+                                <li>Crime Scene Reconstruction (Theoretical)</li>
+                                <li>Pattern Recognition</li>
+                                <li>Behavioral Analysis (Rational Motives)</li>
+                            </ul>
+                            <h4>Unique Game Skill: Deductive Leap</h4>
+                            <p>(Once per game) You may present the GM with a single, clear "yes/no" question based on the logical connections between two or more pieces of evidence you already possess. The GM must answer truthfully.</p>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="collapsible">Codename: The Cypher</button>
+                    <div class="content profile-card">
+                        <div class="content-inner">
+                            <p><strong>Real Name:</strong> Kaelen "Kai" Reyes</p>
+                            <p><strong>Affiliation:</strong> Formerly GCHQ (UK), now runs 'Digital Ghost Solutions' (Freelance).</p>
+                            <p><strong>Profile Summary:</strong> Reyes is a legend in the netsec community, a digital phantom who can walk through the most secure firewalls on earth. They see the world as layers of data waiting to be decrypted. While others see an impossible crime, Reyes sees a flawed system with a ghost in the machine. They are quiet, intensely focused, and trust their terminal more than any person. To them, the Curators' traceless methods are a personal invitation to a duel.</p>
+                            <blockquote>"Every system has a flaw. Every ghost leaves a trace. You just have to know how to listen."</blockquote>
+                            <h4>Key Strengths:</h4>
+                            <ul>
+                                <li>Digital Forensics</li>
+                                <li>Network Analysis</li>
+                                <li>Encryption & Decryption</li>
+                                <li>Vulnerability Assessment</li>
+                            </ul>
+                            <h4>Unique Game Skill: Backtrace</h4>
+                            <p>(Once per game) You may target one piece of digital or electronic evidence (e.g., a corrupted CCTV frame, a security log). The GM must provide you with one extra piece of hidden data or a hint about its technological nature.</p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="collapsible">Codename: The Historian</button>
+                    <div class="content profile-card">
+                        <div class="content-inner">
+                           <p><strong>Real Name:</strong> Dr. Elara Vance</p>
+                           <p><strong>Affiliation:</strong> Professor of Cultural Anthropology, University of Oxford.</p>
+                           <p><strong>Profile Summary:</strong> Dr. Vance possesses an encyclopedic knowledge of history, mythology, and the cultural journeys of artifacts. She can recite the lineage of a single piece of pottery from its creation to the present day. She understands that every object tells a story, and that the Curators are not just stealing items, but stealing those stories. Her expertise is crucial for deciphering the thematic pattern behind the thefts.</p>
+                           <blockquote>"To know what was stolen is trivial. To understand why it was chosen is everything."</blockquote>
+                           <h4>Key Strengths:</h4>
+                           <ul>
+                               <li>Historical & Archaeological Analysis</li>
+                               <li>Cultural Symbolism & Mythology</li>
+                               <li>Provenance Research</li>
+                               <li>Understanding of Black Markets for Artifacts</li>
+                           </ul>
+                           <h4>Unique Game Skill: Historical Context</h4>
+                           <p>(Once per game) You may select one artifact or historical symbol mentioned in the game. The GM will provide you with a deep-dive briefing on its history, cultural significance, or a piece of forgotten lore connected to it.</p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="collapsible">Codename: The Ghost</button>
+                    <div class="content profile-card">
+                        <div class="content-inner">
+                           <p><strong>Real Name:</strong> [REDACTED]</p>
+                           <p><strong>Affiliation:</strong> Formerly of MI6, "disavowed." Now works for a private security contractor.</p>
+                           <p><strong>Profile Summary:</strong> The Ghost is a myth in the intelligence community, an expert in infiltration and extraction. They have bypassed security in palaces, military bases, and corporate headquarters. They understand the human element of security—the lazy guard, the un-patched door sensor, the predictable patrol route. They are pragmatic, resourceful, and can assess the physical realities of a crime scene better than anyone.</p>
+                           <blockquote>"Locks only keep out the honest. For everyone else, they're just a puzzle."</blockquote>
+                           <h4>Key Strengths:</h4>
+                           <ul>
+                               <li>Physical Security System Analysis</li>
+                               <li>Human Intelligence (HUMINT)</li>
+                               <li>Surveillance & Counter-Surveillance</li>
+                               <li>Infiltration & Exfiltration Planning</li>
+                           </ul>
+                           <h4>Unique Game Skill: Case the Joint</h4>
+                           <p>(Once per game) You may ask the GM for a specific detail about the physical security or layout of a crime scene or a potential future target location (e.g., "What was the blind spot in the museum's camera coverage?").</p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="collapsible">Codename: The Profiler</button>
+                    <div class="content profile-card">
+                        <div class="content-inner">
+                           <p><strong>Real Name:</strong> Dr. Kenji Tanaka</p>
+                           <p><strong>Affiliation:</strong> Behavioral Science Unit, FBI (on loan to Interpol).</p>
+                           <p><strong>Profile Summary:</strong> Dr. Tanaka hunts the most dangerous predator: the human mind. He is an expert in forensic psychology and can build a complete profile of a subject from the smallest of details. He is fascinated by the Curators, seeing their manifesto not as a political statement, but as a detailed psychological portrait. His insights are key to predicting their next move before they make it.</p>
+                           <blockquote>"The crime scene is just a canvas. The real art is the signature the mind leaves upon it."</blockquote>
+                           <h4>Key Strengths:</h4>
+                           <ul>
+                               <li>Psychological Profiling of Groups</li>
+                               <li>Ideological & Behavioral Analysis</li>
+                               <li>Predictive Analytics (Motive-based)</li>
+                               <li>Interrogation & Deception Detection</li>
+                           </ul>
+                           <h4>Unique Game Skill: Motive Analysis</h4>
+                           <p>(Once per game) After the Curators' manifesto has been discovered, you may present the GM with a theory about their specific motive or next target. The GM will tell you if your theory is "Hot," "Warm," or "Cold."</p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="collapsible">Codename: The Antiquarian</button>
+                    <div class="content profile-card">
+                        <div class="content-inner">
+                           <p><strong>Real Name:</strong> Mr. Elias Thorne</p>
+                           <p><strong>Affiliation:</strong> Owner of 'Thorne's Rare & Forgotten Tomes' (and other, less public pursuits).</p>
+                           <p><strong>Profile Summary:</strong> Mr. Thorne is a gentleman scholar who operates on the fringes of academia. He knows that history as it is written is often a pale shadow of the truth. His expertise lies in the world of secret societies, esoteric networks, and the occult beliefs tied to powerful artifacts. He is the only one equipped to investigate the "mystically-inclined" methods the Curators employ.</p>
+                           <blockquote>"Some objects aren't just history. They're power. And power always has its worshippers."</blockquote>
+                           <h4>Key Strengths:</h4>
+                           <ul>
+                               <li>Understanding of Occult/Esoteric Networks</li>
+                               <li>Analysis of Apocryphal Texts & Symbols</li>
+                               <li>Knowledge of Historical Secret Societies</li>
+                               <li>Rare Artifact Identification</li>
+                           </ul>
+                           <h4>Unique Game Skill: Unseen Lore</h4>
+                           <p>(Once per game) You may ask the GM if a specific clue, artifact, or symbol has any known connections to occult or esoteric networks. If it does, the GM will provide a brief explanation of that connection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="collapsible">Game Progression & Phases</button>
+            <div class="content">
+                <div class="content-inner">
+                    <p><em>This section outlines the flow of the game, as requested. This information is added based on our previous discussions and is not from the source documents provided in this specific prompt.</em></p>
+                    
+                    <button type="button" class="collapsible">Phase 1: The First Theft - The Sunstone</button>
+                    <div class="content">
+                        <div class="content-inner">
+                            <h4>The Hook</h4>
+                            <p>The game begins with the shocking news: the Macedonian Sunstone has vanished from a high-security museum in Thessaloniki, Greece, shortly after heated diplomatic disputes over its ownership. All evidence points to a professional, state-sponsored act of espionage, but the details are impossible: the case is unbreached, and no alarms were triggered.</p>
+                            <h4>Player Objective</h4>
+                            <p>Teams must analyze the initial dossier, which includes witness statements, technical reports, and an artifact profile. Their goal is to see past the obvious political red herring and deduce the true nature of the culprits.</p>
+                            
+                            <button type="button" class="collapsible">CASE FILE: 72-AEC-01 - The Sunstone Theft</button>
+                            <div class="content">
+                                <div class="content-inner">
+                                    <p><strong>CRIME:</strong> Grand Larceny, Suspected State-Sponsored Espionage<br>
+                                    <strong>LOCATION:</strong> Archaeological Museum of Thessaloniki, Greece<br>
+                                    <strong>STATUS:</strong> ONGOING - HIGHEST PRIORITY</p>
+                                    <hr>
+                                    <h3>1. OFFICIAL SUMMARY</h3>
+                                    <p>At approximately 08:00 EEST this morning, museum staff discovered that the "Macedonian Sunstone," a priceless artifact from the era of Alexander the Great, was missing from its high-security exhibition case. There are no signs of forced entry. All electronic and physical security systems appear untripped and fully operational. The disappearance was discovered just hours after diplomatic talks between Greece and a neighboring nation concerning the artifact's ownership broke down acrimoniously. Tensions between the two nations are at their highest point in a decade.</p>
+                                    <h3>2. ARTIFACT PROFILE: The Macedonian Sunstone</h3>
+                                    <ul>
+                                        <li><strong>Appearance:</strong> A hinged golden locket, approximately 8cm in diameter. The exterior is embossed with the Vergina Sun, a symbol associated with the ancient Macedonian royal dynasty. The interior is said to contain a small, polished obsidian disc that reflects light in a peculiar, mesmerizing way.</li>
+                                        <li><strong>History:</strong> Unearthed in the 1980s, the artifact is a unique symbol of Macedonian heritage. Its ownership has been the subject of an intense and bitter dispute, with both Greece and its neighbor claiming rightful sovereignty based on historical and cultural arguments. It is considered a "kingmaker" artifact, a potent symbol of national identity.</li>
+                                    </ul>
+                                    <h3>3. CRIME SCENE REPORT (Excerpts)</h3>
+                                    <ul>
+                                        <li><strong>Security System Log:</strong> All systems normal. No alarms triggered. No pressure plate anomalies. No laser grid interruptions.</li>
+                                        <li><strong>CCTV Footage:</strong> The camera focused on the display case shows no activity. However, there is a single corrupted frame at 02:13:44 AM, showing a brief flare of what appears to be static or white noise. All other footage is clear.</li>
+                                        <li><strong>Physical Case:</strong> The pressurized, hermetically-sealed glass case is intact and locked. The seals show no signs of tampering. The artifact is simply gone from its velvet pedestal.</li>
+                                    </ul>
+                                    <h3>4. WITNESS STATEMENTS</h3>
+                                    <ul>
+                                        <li><strong>Eleni Vasileiou (Museum Head of Security):</strong> "It's impossible. Utterly impossible. That case is rated to withstand a bomb blast. There was no power failure, no override codes were used. The only anomaly was a momentary voltage flicker on the internal grid around 2 AM, but it was so brief it didn't even cause the emergency lights to kick in. I suspect spies... professionals with technology we haven't seen before. This has the rival government's fingerprints all over it."</li>
+                                        <li><strong>Dr. Aris Thorne (Lead Curator):</strong> (Visibly distraught) "They were shouting. The delegation from the other country... their lead negotiator practically threatened us yesterday. He said, 'If you will not return what is rightfully ours, we will not allow you to keep it.' To have it disappear now... it's a catastrophe. They have done this to humiliate us, to force a conflict. This is not a theft; it is an act of war."</li>
+                                        <li><strong>Yiannis Papadakis (Night Janitor):</strong> "I was buffing the floors in the main atrium, two halls away, around 2 AM. I didn't see anything, but I heard something strange. A low hum... very faint. Not like a machine, more like... like a hive of bees in the walls. It only lasted a minute. And the air suddenly felt strange. You know the smell right after a lightning strike? It smelled like that for a moment. I thought maybe a transformer was acting up."</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <button class="button reveal-button">Reveal Bonus Intel for Phase 1</button>
+                            <div class="bonus-content">
+                                <h4>Phase 1 Secret Clues (Strategic Action Payoffs)</h4>
+                                <ul>
+                                    <li><strong>On the CCTV Frame:</strong> The "static" is actually a complex, non-repeating geometric pattern, like a circuit diagram for an unknown technology.</li>
+                                    <li><strong>On the Power Flicker:</strong> It was a localized brownout, a massive power *drain* from that specific circuit, not a surge.</li>
+                                    <li><strong>On the Janitor's Testimony:</strong> A sweep reveals trace amounts of ionized Xenon gas, requiring immense energy to produce.</li>
+                                    <li><strong>Local Rumors:</strong> A rumor suggests the rival nation's own extraction plan was thwarted because a "third party got there first." Another mentions a fringe academic group called "The Curators" who believe art should be "liberated."</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="collapsible">Phase 2: The Race - The Next Target</button>
+                    <div class="content">
+                        <div class="content-inner">
+                            <h4>The Shift</h4>
+                            <p>Having identified the culprits as "The Curators," a group with a strong ideology against the commercialization and desecration of culture, the game shifts. Teams are no longer reacting; they must be proactive. They are given intel that the Curators' next act is imminent.</p>
+                            <h4>Player Objective</h4>
+                            <p>Teams are presented with an intelligence dossier detailing three potential targets. They must deduce which one best fits the Curators' manifesto and deploy resources to protect it.</p>
+
+                            <button type="button" class="collapsible">Intel Dossier: The OmniCorp Targets</button>
+                            <div class="content">
+                                <div class="content-inner">
+                                    <h3>BRIEFING</h3>
+                                    <p>Your work on the Sunstone case has confirmed that the culprits, now identified as 'The Curators,' are driven by a fierce ideology. Their manifesto suggests they target artifacts they believe have been desecrated by commercialism, conflict, or appropriation. We have intercepted fragmented intelligence suggesting their next act is imminent. They are targeting a piece of heritage they see as being 'stolen' or 'misused' by a major global conglomerate, **OmniCorp**. We have narrowed down OmniCorp's current activities to three potential targets. Analyze the data and choose wisely.</p>
+                                    <hr>
+                                    <h3>TARGET A: The Stolen Sound</h3>
+                                    <ul>
+                                        <li><strong>Asset:</strong> The "Haka of the Silent Mountain" Master Tapes.</li>
+                                        <li><strong>Description:</strong> A set of original, reel-to-reel master tapes from the 1950s, containing the only known recording of a sacred and now-extinct Maori ceremonial chant. The chant is considered a foundational piece of cultural and spiritual heritage.</li>
+                                        <li><strong>Location:</strong> The New Zealand National Archives, Wellington.</li>
+                                        <li><strong>The Threat:</strong> OmniCorp's marketing division is in the final stages of a highly controversial legal battle to license the chant for their new "Omni-Cola" global advertising campaign. Maori elders have protested, calling it the ultimate act of cultural appropriation. The Curators would see this as the "soul" of a culture being sold for commercial gain.</li>
+                                    </ul>
+                                    <h3>TARGET B: The Contested Painting</h3>
+                                    <ul>
+                                        <li><strong>Asset:</strong> "The Merchant's Wife" by Vermeer.</li>
+                                        <li><strong>Description:</strong> An undisputed masterpiece of the Dutch Golden Age. The painting was famously looted by the Nazis during WWII and passed through several hands before being recovered and placed in a Belgian national museum. The original owner's descendants have recently launched a high-profile and bitter legal campaign for its repatriation.</li>
+                                        <li><strong>Location:</strong> Royal Museums of Fine Arts, Brussels, Belgium.</li>
+                                        <li><strong>The Threat:</strong> While the legal battle rages, the museum has controversially signed a deal with OmniCorp's gaming division to create a photorealistic digital version of the painting to be used as a central plot point in their upcoming blockbuster video game, "Heist." The Curators would see this as trivializing an artifact already steeped in the trauma of conflict.</li>
+                                    </ul>
+                                    <h3>TARGET C: The Uncredited Design</h3>
+                                    <ul>
+                                        <li><strong>Asset:</strong> The Original Schematics for the "Oculus" Camera.</li>
+                                        <li><strong>Description:</strong> The original, hand-drawn technical blueprints for the revolutionary camera lens that made OmniCorp's founder a billionaire in the 1960s. The design is an icon of industrial art.</li>
+                                        <li><strong>Location:</strong> The OmniCorp Corporate Headquarters, San Francisco, USA.</li>
+                                        <li><strong>The Threat:</strong> It was recently proven through recovered letters that the lens was actually designed by a brilliant but uncredited female mathematician who was a junior employee at the time. Her family is suing OmniCorp for decades of royalties and recognition. The corporation is using its legal might to crush the claim. The Curators would see this as the theft of an individual's intellectual and creative heritage by a corporate machine.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <button class="button reveal-button">Reveal Bonus Intel for Phase 2</button>
+                            <div class="bonus-content">
+                                <h4>Secret "Deeper Dive" Intel</h4>
+                                <p>This information is gained by spending "Intel Tokens" on a specific target.</p>
+                                <ul>
+                                    <li><strong>File on Target A:</strong> Confirms a remote sonic pulse could erase the tapes, fitting the Curators' non-physical M.O. The extreme trivialization is a perfect match for their ideology.</li>
+                                    <li><strong>File on Target B:</strong> Confirms a remote attack is unlikely on a physical painting and the motive is more about conflict than pure commercialization, a slight deviation.</li>
+                                    <li><strong>File on Target C:</strong> Confirms this would require a physical heist, a major deviation from their M.O. The target is also industrial, not cultural/spiritual heritage.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="collapsible">Phase 3 & Finale: The Chronosync Debate</button>
+                    <div class="content">
+                        <div class="content-inner">
+                            <h4>The Path to the Finale: The Two Halves of the Key</h4>
+                            <p>The resolution of Phase 2 directly determines how teams find the Curators' base. The groups are forced to collaborate to succeed.</p>
+                            <ul>
+                                <li><strong>Successful Teams (who chose Target A):</strong> Their presence during the theft forces the Curators to act hastily. They manage to trace the strange energy signature, but it's scrambled at the last moment. They discover the final location's **LATITUDE** coordinate, but not the longitude.</li>
+                                <li><strong>Unsuccessful Teams (who chose B or C):</strong> They find a cryptic message left behind by the Curators ("...a sanctuary beyond your reach..."). By deciphering this clue, they discover the final location's **LONGITUDE** coordinate, but not the latitude.</li>
+                            </ul>
+                            <p>The teams must then pool their findings to pinpoint the Curators' sanctuary on an isolated island in the Ionian Sea.</p>
+                            <hr>
+                            <h4>The Final Challenge</h4>
+                            <p>Inside the sanctuary, the teams find the lead Curator, Dr. Anya Sharma. She is not a villain, but a resolute academic. She stands before a device called the "Chronosync Pulse," which is counting down.</p>
+                            <blockquote>"So, you made it. It seems I underestimated the world's desire to cling to what it has already ruined. I am Dr. Anya Sharma, and in three minutes, I will give these treasures the one thing you never could: peace. The Chronosync Pulse will not harm them, but it will erase their memory from the rest of the world. They will finally be safe when they are forgotten by the unworthy. I have initiated the final sequence... but I will listen. Convince me I am wrong."</blockquote>
+                            <p>The teams have three minutes of real time to present three distinct, persuasive arguments to convince her to stop the countdown.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="access-button-container">
+                 <button id="noteButton" class="button access-button">Access Recovered Note</button>
+                 <button id="gmMasterButton" class="button access-button">Access Game Master Section</button>
+            </div>
+
+            <div id="noteContainer" class="hidden-container">
+                <button type="button" class="collapsible">Recovered Manifesto Fragment</button>
+                <div class="content">
+                    <div class="content-inner">
+                         <blockquote>
+                            <p>...and so we act. We are not thieves; we are librarians of the deserving. We are surgeons excising a cancer. For generations, we have watched... as humanity spits upon its own inheritance.</p>
+                            <p>You have sold your soul for spectacle. You take the sacred and make it a selfie backdrop... You allow the priceless to erode under a film of acidic neglect... You have proven yourselves to be unworthy children, squabbling over heirlooms you no longer comprehend.</p>
+                            <p>We will not destroy the art. We will rescue it... We will become the silent guardians of your squandered legacy in a sanctuary beyond your reach. The history of the world is now closed to the public. You have lost your visiting privileges.</p>
+                            <p>We are The Curators. And we are taking it all back.</p>
+                         </blockquote>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="gmSectionContainer" class="hidden-container">
+                <button type="button" class="collapsible">Game Master's Core Secrets</button>
+                <div class="content">
+                    <div class="content-inner">
+                         <h3>The Core Secret: The Cultural Judges</h3>
+                         <p>The antagonists, calling themselves "The Curators," are not thieves but a splinter group of disillusioned historians and curators. They believe modern society has proven itself unworthy of its heritage through neglect and commercialism. Their actions are not born from greed but from a fanatical, self-righteous ideology. They are "rescuing" artifacts by sequestering them in a sanctuary, effectively erasing them from a world they feel no longer deserves them.</p>
+                         <hr>
+                         <h3>Finale: Winning The Chronosync Debate</h3>
+                         <p>To win, the teams must present arguments that dismantle the three pillars of Dr. Sharma's ideology. She is a fanatic but also an academic who can be swayed by logic.</p>
+                           <ul>
+                               <li><strong>1. The Argument of FLAWED METHOD:</strong> Prove her methods are contradictory. (e.g., "By erasing the Maori chant, you didn't save it from OmniCorp, you simply became the final act of cultural erasure yourself.")</li>
+                               <li><strong>2. The Argument of UNFORESEEN CONSEQUENCES:</strong> Argue the outcome is worse than the problem. (e.g., "An object without its story is just dead matter. You are erasing the very lessons history teaches, leaving a void.")</li>
+                               <li><strong>3. The Argument of HUMAN POTENTIAL:</strong> Use their own journey as proof humanity is worthy. (e.g., "Look at us. Competing teams who worked together. We are proof that people still care enough to protect history, not erase it. Entrust them to us.")</li>
+                           </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="resources">
+                <h3>Game Resources</h3>
+                <a href="https://pdomvros.github.io/dice-echoes/" target="_blank">Online Dice Roller</a>
+            </div>
+            
+            <footer>
+                Created by Panagiotis Domvros 2025 (CC BY-NC)<br>
+                English & Drama Instructor– Teacher Trainer<br>
+                Principal of 1st Middle School of Pylea
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Script for main collapsible sections
+        var coll = document.getElementsByClassName("collapsible");
+        for (let i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+        
+        // Script for player "bonus" content password
+        var bonusButtons = document.getElementsByClassName("reveal-button");
+        for (let i = 0; i < bonusButtons.length; i++) {
+            bonusButtons[i].addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevents the parent collapsible from closing
+                const pass = prompt("Enter Password to Reveal Bonus Intel:");
+                if (pass && pass.toLowerCase() === "echo") {
+                    let bonusContent = this.nextElementSibling;
+                    if (bonusContent && bonusContent.classList.contains('bonus-content')) {
+                       bonusContent.style.display = 'block';
+                       this.style.display = 'none'; // Hide the button after use
+                    }
+                } else if (pass !== null) { 
+                    alert("Incorrect Password.");
+                }
+            });
+        }
+        
+        // Script for Recovered Note password
+        document.getElementById('noteButton').addEventListener('click', function() {
+            const pass = prompt("Enter Password to Access Recovered Note:");
+            if (pass && pass.toLowerCase() === "note") {
+                const noteContainer = document.getElementById('noteContainer');
+                noteContainer.style.display = 'block';
+                // Activate the collapsible once displayed
+                noteContainer.querySelector('.collapsible').click();
+                this.style.display = 'none';
+            } else if (pass !== null) {
+                alert("Incorrect Access Code.");
+            }
+        });
+
+        // Script for main Game Master section password
+        document.getElementById('gmMasterButton').addEventListener('click', function() {
+            const pass = prompt("Enter Game Master Access Code:");
+            if (pass === "2026") {
+                const gmContainer = document.getElementById('gmSectionContainer');
+                gmContainer.style.display = 'block';
+                 // Activate the collapsible once displayed
+                gmContainer.querySelector('.collapsible').click();
+                this.style.display = 'none'; 
+            } else if (pass !== null) { 
+                alert("Incorrect Access Code.");
+            }
+        });
+    </script>
+
+</body>
+</html>
